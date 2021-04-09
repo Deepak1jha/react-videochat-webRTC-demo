@@ -1,5 +1,9 @@
-import { Typography, AppBar } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import {Typography, AppBar} from '@material-ui/core';
+import {makeStyles} from '@material-ui/core/styles';
+import Notification from '../src/components/notification/Notification';
+import Options from "./components/options/Options";
+import VideoPlayer from "./components/videoPlayer/VideoPlayer";
+
 const useStyles = makeStyles((theme) => ({
     appBar: {
         borderRadius: 15,
@@ -29,9 +33,15 @@ const App = () => {
     const classes = useStyles();
     return (
         <>
-            <AppBar className={classes.appBar} position="static" color="inherit">
-                <Typography variant="h2" align="center">Video Chat</Typography>
-            </AppBar>
+            <div className={classes.wrapper}>
+                <AppBar className={classes.appBar} position="static" color="inherit">
+                    <Typography variant="h2" align="center">Video Chat</Typography>
+                </AppBar>
+                <VideoPlayer/>
+                <Options>
+                    <Notification/>
+                </Options>
+            </div>
         </>
     )
 }
